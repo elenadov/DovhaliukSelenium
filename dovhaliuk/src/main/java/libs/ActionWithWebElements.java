@@ -22,9 +22,9 @@ public class ActionWithWebElements {
     public void enterTextToTextField(WebElement element, String text){
         try {
 //            webDriver.findElement(element).clear();
-//            webDriver.findElement(element).sendKeys();
+//            webDriver.findElement(element).sendKeys(text);
             element.clear();
-            element.sendKeys();
+            element.sendKeys(text);
             logger.info("Success");
         }
         catch(Exception ex){
@@ -46,13 +46,24 @@ public class ActionWithWebElements {
         }
     }
 
-    public boolean isElemenDisplayed(WebElement element){
-        try{
+    public boolean isElementDisplayed(WebElement element){
+        try {
             return element.isDisplayed(); //webDriver.findElement(element).isDisplayed();
 
         } catch(Exception e){
             e.printStackTrace();
-            logger.error("");
+            logger.error("The element is not displayed");
+            return false;
+        }
+    }
+
+    public boolean isElementEnabled(WebElement element){
+        try{
+            return element.isEnabled();
+        }
+        catch (Exception e){
+            e.printStackTrace();
+            logger.error("The element is active");
             return false;
         }
     }

@@ -15,6 +15,7 @@ public class AbstractParentTest {
     WebDriver webDriver;
     protected LoginPage loginPage;
     protected HomePage homePage;
+    protected DealTypePage dealTypePage;
 
 
     @Before //annotation works before each test
@@ -25,6 +26,7 @@ public class AbstractParentTest {
         webDriver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS); //neyavnoe ozhidanie
         loginPage = new LoginPage(webDriver);
         homePage = new HomePage(webDriver);
+        dealTypePage = new DealTypePage(webDriver);
     }
 
 

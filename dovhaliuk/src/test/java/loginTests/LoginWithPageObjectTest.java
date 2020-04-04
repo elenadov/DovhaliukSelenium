@@ -7,7 +7,7 @@ public class LoginWithPageObjectTest extends AbstractParentTest {
 
     @Test
     public void validLogin(){
-        loginPage.openPage1();
+        loginPage.openPage();
         loginPage.inputLogin("Student");
         loginPage.inputPassword("909090");
         loginPage.clickSubmitButton();

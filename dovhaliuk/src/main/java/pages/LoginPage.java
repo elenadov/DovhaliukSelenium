@@ -1,11 +1,7 @@
 package pages;
 
 
-import libs.ActionWithWebElements;
 import libs.ConfigClass;
-import libs.ConfigClass1;
-import org.apache.log4j.Logger;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -53,7 +49,7 @@ public class LoginPage extends ParentPage {
     //open web page
     public void openPage() {
         try {
-            webDriver.get(ConfigClass1.getCfgValue("base_url" + "/login"));
+            webDriver.get(ConfigClass.getCfgValue("base_url") + "/login");
             logger.info("Page login was opened");
 
         } catch (Exception e) {
@@ -76,26 +72,13 @@ public class LoginPage extends ParentPage {
     }
 
     public boolean isLoginBoxRefresh(){
-        return actionWithWebElements.isElemenDisplayed(loginBox);
+        return actionWithWebElements.isElementDisplayed(loginBox);
     }
 
     public void loginToPage(String login, String password){
         inputLogin(login);
         inputPassword(password);
         clickSubmitButton();
-
-    }
-
-    public void openPage1() {
-        try {
-            webDriver.get("http://v3.test.itpmgroup.com/login");
-            logger.info("Page login was opened");
-
-        } catch (Exception e) {
-            e.printStackTrace();
-            logger.error("Can't open URL");
-            Assert.fail("Can't open URL");
-        }
     }
 
 }
